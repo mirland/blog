@@ -23,10 +23,6 @@ permalink: /:year/:month/:day/:title/
 #   style: :compressed
 
 defaults:
-  # Default layout and language to everything
-  -
-    values:
-      layout: "default"
   # Specify default pages’ layout
   -
     scope:
@@ -34,3 +30,10 @@ defaults:
       type: "posts"
     values:
       author: "mtnBarreto"
+
+jekyll_admin:
+  hidden_links:
+    - pages
+    - staticfiles
+    - datafiles
+    - configuration
