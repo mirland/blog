@@ -35,3 +35,11 @@ jobs:
         repository: xmartlabs/blog-staging
         branch: 'auto-deploy'
         force: true
+    - name: Update deployment status (success)
+      if: success()
+      uses: chrnorm/deployment-status@releases/v1
+      with:
+        target_url: https://blog-staging.xmartlabs.com/
+        state: "success"
+        token: "${{ secrets.GITHUB_TOKEN }}"
+
