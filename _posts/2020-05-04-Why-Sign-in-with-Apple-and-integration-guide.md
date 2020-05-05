@@ -18,7 +18,7 @@ In this post, we'll debate about the benefits of providing *Sign in with Apple* 
 
 ### In case you don't know What's Sign in with Apple yet...
 
-*Sign in with Apple* is a new Apple service that make it easy for users to sign in to your apps and websites using their Apple ID. Instead of filling out forms, verifying email addresses, and choosing new passwords, they can use Sign in with Apple to set up an account and start using your app right away.
+*Sign in with Apple* is a new Apple service that makes it easy for users to sign in to your apps and websites using their Apple ID. Instead of filling out forms, verifying email addresses, and choosing new passwords, they can use Sign in with Apple to set up an account and start using your app right away.
 
 > Apple will make it mandatory by the end of June if you're already providing other third-party social media authentication such as Facebook, Google, Twitter, etc. You can visit [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/#sign-in-with-apple) for more info about Apple store review.
 
@@ -32,7 +32,6 @@ Sometimes an app user would prefer *Sign in with Apple* over other alternatives 
 
 Even though *Sign in with Apple* is multiplatform which means we can make it work on the web, Android devices, Windows apps and platforms provided by Apple. The user still needs to have an Apple device to complete the two-factor authentication, upon Apple Id login the user receives a 2FA code from apple in their device. So if your app is available for not Apple devices owners just allowing *Sign in with Apple* is not an option.
 
-Now, you should have a better idea of what's *Sign in with Apple* and .
 At this point you should have gotten the point of all the benefits in adopting Sign in with Apple in your app and be able to decide if it's useful for your app. So now let's move on to a step by step integration guide.
 
 ## Integration guide
@@ -52,7 +51,7 @@ Search *Sign in with Apple* capability and if it's not enabled, enable it. Then,
 
 Go back to *Certificates, Identifiers & Profile* screen and go to the *Keys* page to register the new key. Press the *+* button and add the *Sign in with Apple* capability, then press the *Configure* button.
 
-<img width="100%" src="/images/apple-sign-in/registerNewkey.png" />
+<img width="100%" src="/images/apple-sign-in/registerNewKey.png" />
 
 Make sure to select the correct Primary App ID and save the configuration key.
 
@@ -101,7 +100,7 @@ Let's implement the button handler
 
 <div style="text-align: center"><img width="60%" src="/images/apple-sign-in/AppleSignIn.gif" /></div>
 <p></p>
-As we can see int he code snippet above, it's required to conform to `ASAuthorizationControllerDelegate` and `ASAuthorizationControllerPresentationContextProviding` protocols.
+As we can see in the code snippet above, it's required to conform to `ASAuthorizationControllerDelegate` and `ASAuthorizationControllerPresentationContextProviding` protocols.
 <p></p>
 
 We conform to `ASAuthorizationControllerPresentationContextProviding` to indicate the window that will contain "Sign in with Apple" SDK dialogs, as shown in the code below.
@@ -202,7 +201,7 @@ Apple provides a REST API to communicate between your app servers and Apple's au
 
 As we mentioned before, to communicate with app users who taps the *hide my email* option we must register the app email server domain. You must have already configured Sender Policy Framework (SPF) in order to use it at this point.
 
-For configure your email domains enter to **Apple Developer Program**. Go to *Certificates, Identifiers & Profile → More* and tap *Configure* button
+In order to configure your email domains enter to **Apple Developer Program**. Go to *Certificates, Identifiers & Profile → More* and tap *Configure* button
 
 <img width="100%" src="/images/apple-sign-in/emailComunication.png" />
 
@@ -227,10 +226,10 @@ There are some aspects you should consider if you'll integrate it.
 
 As we mentioned before, developers only receive email and full name once, so if there is a connection issue and you don't save this data locally you won't be able to recover it.
 
-If users choose the *hide my email* option, it could be difficult to identify the user since the app only holds it apple identifier and its apple private email. So any communication should be done through the app.
+If users choose the *hide my email* option, it could be difficult to identify the user since the app only holds its apple identifier and its apple private email. So any communication should be done through the app.
 
 
-Well, hope now you have a better understanding about *Sign in with Apple*, it integration cost and if it's suitable for your app!
+Well, I hope now you have a better understanding about *Sign in with Apple*, its integration cost and if it's suitable for your app!
 
 
 ***Are you integrating Sign in with Apple in your app and have learned something not covered in this post? Let me know in the comments. I'd be interested to add it to this blogpost.***
