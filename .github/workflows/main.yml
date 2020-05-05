@@ -60,3 +60,9 @@ jobs:
           repository: xmartlabs/blog-staging
           branch: 'auto-deploy'
           force: true
+      - name: Update deploy status
+        if: ${{ success() && !contains( github.event.pull_request.labels.*.name, 'not-deploy') }}
+        uses: unacast/actions-github-deployment-status@v0.3.0
+        with:
+          github_token: ${{ secrets.DEPLOYMENT_STATUS }}
+          status: "success"
